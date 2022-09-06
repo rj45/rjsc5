@@ -12,7 +12,8 @@ You can read my [build log here](buildlog/README.md).
 
 ## Specs
 
-* 32 32-bit registers
+* RV32I
+* 32-bit registers
 * 16-bit ALU and data paths
 * Pipelined (4? stages)
 * Memory
@@ -28,3 +29,5 @@ You can read my [build log here](buildlog/README.md).
 * Unix-like OS built in Rust
 * Retro graphics through a Video Display Processor
 * Retro sounding audio
+* M extension
+* C extension

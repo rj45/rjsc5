@@ -11,4 +11,3 @@ But I wanted to make it unique so it would be enough of a challenge to keep me i
 A lot of thought has already gone into the design of the processor, and I started working on the verilog, but since I am new to verilog I made some mistakes with the initial prototype.
 
 So here's a new start, and this time I will keep a build log so I can stop spamming the discord server I haunt with updates no one seems to care about :-)
-
