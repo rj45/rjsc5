@@ -1,0 +1,4 @@
+testbench/results.xml
+testbench/sim_build
+testbench/__pycache__
+testbench/rjsc5.vcd

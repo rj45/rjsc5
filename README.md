@@ -31,3 +31,29 @@ You can read my [build log here](buildlog/README.md).
 * Retro sounding audio
 * M extension
 * C extension
+
+### Testing
+
+Install [cocotb](https://github.com/cocotb/cocotb), then:
+
+```sh
+make
+```
+
+If you want to use verilator:
+
+```sh
+make SIM=verilator
+```
+
+If you want to see the VCD in gtkwave:
+
+```sh
+gtkwave rjsc5.sv
+```
+
+## Copyright
+
+Copyright (c) 2022 github.com/rj45. All Rights Reserved.
+
+See [LICENSE](./LICENSE) for more info.
