@@ -15,3 +15,9 @@ So here's a new start, and this time I will keep a build log so I can stop spamm
 ## Sept 6, 2022 - Part 2
 
 I chose cocotb to build testbenches with. It seems pretty simple and straightforward and building testbenches in Verilog is more than a little bit annoying. Maybe SystemVerilog has some good advances there. But cocotb is impressive so far, I like it.
+
+## Sept 8, 2022
+
+Added the [register file](../verilog/cpu/mod/regfile_half.sv) and wrestled with cocotb to get some unit tests around it.
+
+[Read more](./2022-09-08-register-file.md)

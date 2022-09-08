@@ -2,7 +2,17 @@
 
 module test_soc(
   input clk,
-  input reset
+  input reset,
+
+  // regfile_half
+  input rw_clken,
+  input rw_half,
+  input [4:0] rw_rd,
+  input [15:0] rw_result,
+  input de_half,
+	input [4:0] de_rs,
+  input ex_clken,
+  output reg [19:0] ex_src
 );
 
 `ifdef COCOTB_SIM
@@ -14,5 +24,7 @@ module test_soc(
 `endif
 
 rjsc5 cpu(.*);
+
+regfile_half rf(.*);
 
 endmodule

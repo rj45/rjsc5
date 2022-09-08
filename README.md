@@ -4,7 +4,7 @@ rjsc5 (reesk-five) is a 16-bit RISC-V CPU. Because 32 bits is already done many 
 
 ## Goal
 
-Build a 16-bit RISC-V CPU that's feasible to build out of discrete logic chips (74xxx series ICs), though this specific project is to build it in an FPGA with verilog.
+Build a 16-bit RISC-V CPU that's feasible to build out of discrete wire chips (74xxx series ICs), though this specific project is to build it in an FPGA with verilog.
 
 ## Build Log
 
