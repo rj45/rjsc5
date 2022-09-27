@@ -42,7 +42,7 @@ junk += $(tests_elf) $(tests_dump) $(tests_bin) $(tests_hex)
 	$(RISCV_OBJCOPY) $< $@
 
 %.hex: %.bin
-	xxd -p -g 4 -c 4 $< > $@
+	hexdump -e '"%08x " "\n"' -v $< > $@
 
 %.elf: %.S
 	$(RISCV_GCC) $(RISCV_GCC_OPTS) -T./link.ld $< -o $@
