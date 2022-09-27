@@ -106,7 +106,7 @@ jalr:    ; 11: 01011
 next 0 ; not implemented
 
 lui:     ; 12: 01100
-done EN_REG | RES_IMM
+done EN_REG | RES_IMM | IMM_U
 
 auipc:   ; 13: 01101
 next 0 ; not implemented
