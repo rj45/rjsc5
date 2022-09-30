@@ -75,71 +75,74 @@ next EN_IR ; don't inc PC
 op:      ;  1: 00001
 done EN_REG | ALU_RS2 | FUNC_FUNCT3 | SUB_ALT | RES_ALU
 
-shift:   ;  2: 00010
+slt:     ;  2: 00010
+done EN_REG | ALU_RS2 | FUNC_FUNCT3 | SUB_UCODE | COMPARE | RES_ALU
+
+shift:   ;  3: 00011
 done EN_REG | ALU_RS2 | FUNC_FUNCT3 | SUB_ALT | RES_ALU
 
-mul:     ;  3: 00011
+mul:     ;  4: 00100
 next 0 ; not implemented
 
-div:     ;  4: 00100
+div:     ;  5: 00101
 next 0 ; not implemented
 
-rem:     ;  5: 00101
+rem:     ;  6: 00110
 next 0 ; not implemented
 
-opi:     ;  6: 00110
+opi:     ;  7: 00111
 done EN_REG | ALU_IMM | FUNC_FUNCT3 | SUB_UCODE | IMM_I | RES_ALU
 
-shifti:  ;  7: 00111
+slti:    ;  8: 01000
+done EN_REG | ALU_IMM | FUNC_FUNCT3 | SUB_UCODE | COMPARE | IMM_I | RES_ALU
+
+shifti:  ;  9: 01001
 done EN_REG | ALU_IMM | FUNC_FUNCT3 | SUB_UCODE | IMM_I | RES_ALU
 
-compare: ;  8: 01000
+branch:  ; 10: 01010
 done ACK_NEXT | ADDR_PC | ALU_RS2 | IMM_B | SB_RD | FUNC_ADD | SUB_UCODE | COMPARE | BR_BRANCH
 
-branch:  ;  9: 01001
-done 0 ; nop
-
-jal:     ; 10: 01010
+jal:     ; 11: 01011
 next 0 ; not implemented
 
-jalr:    ; 11: 01011
+jalr:    ; 12: 01100
 next 0 ; not implemented
 
-lui:     ; 12: 01100
+lui:     ; 13: 01101
 done EN_REG | RES_IMM | IMM_U
 
-auipc:   ; 13: 01101
+auipc:   ; 14: 01110
 next 0 ; not implemented
 
-addr:    ; 14: 01110
+addr:    ; 15: 01111
 next 0 ; not implemented
 
-load:    ; 15: 01111
+load:    ; 16: 10000
 next 0 ; not implemented
 
-store:   ; 16: 10000
+store:   ; 17: 10001
 next 0 ; not implemented
 
-fence:   ; 17: 10001
+fence:   ; 18: 10010
 done 0 ; nop
 
-ecall:   ; 18: 10010
+ecall:   ; 19: 10011
 next 0 ; not implemented
 
-ebreak:  ; 19: 10011
+ebreak:  ; 20: 10100
 next 0 ; not implemented
 
-mret:    ; 20: 10100
+mret:    ; 21: 10101
 next 0 ; not implemented
 
-wfi:     ; 21: 10101
+wfi:     ; 22: 10110
 next 0 ; not implemented
 
-csrrw:   ; 22: 10110
+csrrw:   ; 23: 10111
 next 0 ; not implemented
 
-csrrs:   ; 23: 10111
+csrrs:   ; 24: 11000
 next 0 ; not implemented
 
-csrrc:   ; 24: 11000
+csrrc:   ; 25: 11001
 next 0 ; not implemented
