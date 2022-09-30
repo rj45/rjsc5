@@ -5,8 +5,8 @@ require "pathname"
 # read the whole file specified in the first argument
 hex = File.read(ARGV[0])
 
-# split into lines, take all but the first (header) line
-_, *lines = hex.split("\n")
+# split into lines
+lines = hex.split("\n")
 
 # split all the lines on spaces
 machcode = lines.map {|x| x.split}

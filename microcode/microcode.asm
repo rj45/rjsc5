@@ -14,13 +14,13 @@ EN_IR = 1 << 10
 
 COMPARE = 1 << 11
 
-; mux_lhs
-LHS_PC = 0 << 12
-LHS_RS1 = 1 << 12
+; mux_addr
+ADDR_PC = 0 << 12
+ADDR_RS1 = 1 << 12
 
 ; mux_rhs
-RHS_RS2 = 0 << 13
-RHS_IMM = 1 << 13
+ALU_RS2 = 0 << 13
+ALU_IMM = 1 << 13
 
 ; mux_func
 FUNC_ADD = 0 << 14
@@ -73,10 +73,10 @@ boot:    ;  0: 00000 (boot and illegal instruction)
 next EN_IR ; don't inc PC
 
 op:      ;  1: 00001
-done EN_REG | LHS_RS1 | RHS_RS2 | FUNC_FUNCT3 | SUB_ALT | RES_ALU
+done EN_REG | ALU_RS2 | FUNC_FUNCT3 | SUB_ALT | RES_ALU
 
 shift:   ;  2: 00010
-done EN_REG | LHS_RS1 | RHS_RS2 | FUNC_FUNCT3 | SUB_ALT | RES_ALU
+done EN_REG | ALU_RS2 | FUNC_FUNCT3 | SUB_ALT | RES_ALU
 
 mul:     ;  3: 00011
 next 0 ; not implemented
@@ -88,16 +88,16 @@ rem:     ;  5: 00101
 next 0 ; not implemented
 
 opi:     ;  6: 00110
-done EN_REG | LHS_RS1 | RHS_IMM | FUNC_FUNCT3 | SUB_UCODE | IMM_I | RES_ALU
+done EN_REG | ALU_IMM | FUNC_FUNCT3 | SUB_UCODE | IMM_I | RES_ALU
 
 shifti:  ;  7: 00111
-done EN_REG | LHS_RS1 | RHS_IMM | FUNC_FUNCT3 | SUB_UCODE | IMM_I | RES_ALU
+done EN_REG | ALU_IMM | FUNC_FUNCT3 | SUB_UCODE | IMM_I | RES_ALU
 
 compare: ;  8: 01000
-next ACK_NEXT | LHS_RS1 | RHS_RS2 | FUNC_ADD | SUB_UCODE | COMPARE
+done ACK_NEXT | ADDR_PC | ALU_RS2 | IMM_B | SB_RD | FUNC_ADD | SUB_UCODE | COMPARE | BR_BRANCH
 
 branch:  ;  9: 01001
-done LHS_PC | RHS_IMM | IMM_I | SB_RD | FUNC_ADD | SUB_UCODE | BR_BRANCH
+done 0 ; nop
 
 jal:     ; 10: 01010
 next 0 ; not implemented
