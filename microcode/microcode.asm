@@ -55,6 +55,10 @@ RES_ALU = 1 << 22
 RES_IMM = 2 << 22
 RES_MEM = 3 << 22
 
+; mux_ares
+ARES_RES = 0 << 24
+ARES_ADDR = 1 << 24
+
 #ruledef {
   next {value} => le((value | BUSY )`32)
   done {value} => le((value | READY | EN_PC | EN_IR )`32)
@@ -100,19 +104,19 @@ shifti:  ;  9: 01001
 done EN_REG | ALU_IMM | FUNC_FUNCT3 | SUB_UCODE | IMM_I | RES_ALU
 
 branch:  ; 10: 01010
-done ACK_NEXT | ADDR_PC | ALU_RS2 | IMM_B | SB_RD | FUNC_ADD | SUB_UCODE | COMPARE | BR_BRANCH
+done ADDR_PC | ALU_RS2 | IMM_B | SB_RD | FUNC_ADD | SUB_UCODE | COMPARE | BR_BRANCH
 
 jal:     ; 11: 01011
-next 0 ; not implemented
+done EN_REG | RES_PC | ADDR_PC | IMM_J | BR_JUMP
 
 jalr:    ; 12: 01100
-next 0 ; not implemented
+done EN_REG | RES_PC | ADDR_RS1 | IMM_I | BR_JUMP
 
 lui:     ; 13: 01101
 done EN_REG | RES_IMM | IMM_U
 
 auipc:   ; 14: 01110
-next 0 ; not implemented
+done EN_REG | ADDR_PC | IMM_U | ARES_ADDR
 
 addr:    ; 15: 01111
 next 0 ; not implemented

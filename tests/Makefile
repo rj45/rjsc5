@@ -10,12 +10,12 @@ tests = \
 	sll slli \
 	sra srai \
 	srl srli \
-	fence_i \
 	lui \
 	auipc \
 	jal jalr \
 	# lb lbu lh lhu lw \
 	# sb sh sw \
+	# fence_i \
 
 tests_dump = $(addsuffix .dump, $(tests))
 tests_elf = $(addsuffix .elf, $(tests))
