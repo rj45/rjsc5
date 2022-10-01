@@ -14,8 +14,8 @@ tests = \
 	auipc \
 	jal jalr \
 	lw sw \
-	# lb lbu lh lhu \
-	# sb sh \
+	lh lhu sh \
+	# lb lbu sb \
 	# fence_i \
 
 tests_dump = $(addsuffix .dump, $(tests))
