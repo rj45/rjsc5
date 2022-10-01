@@ -15,7 +15,7 @@ tests = \
 	jal jalr \
 	lw sw \
 	lh lhu sh \
-	# lb lbu sb \
+	lb lbu sb \
 	# fence_i \
 
 tests_dump = $(addsuffix .dump, $(tests))
