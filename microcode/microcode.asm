@@ -9,7 +9,7 @@ BUSY  = 1 << 0
 EN_PC = 1 << 6
 EN_REG = 1 << 7
 EN_STR = 1 << 8
-EN_MAR = 1 << 9
+EN_MEM = 1 << 9
 EN_IR = 1 << 10
 
 COMPARE = 1 << 11
@@ -26,9 +26,7 @@ ALU_IMM = 1 << 13
 FUNC_ADD = 0 << 14
 FUNC_FUNCT3 = 1 << 14
 
-; mux_ack
-ACK_NEXT = 0 << 15
-ACK_MEM = 1 << 15
+; unused 15
 
 ; mux_sub
 SUB_UCODE = 0 << 16
@@ -118,35 +116,38 @@ done EN_REG | RES_IMM | IMM_U
 auipc:   ; 14: 01110
 done EN_REG | ADDR_PC | IMM_U | ARES_ADDR
 
-addr:    ; 15: 01111
-next 0 ; not implemented
+load1:   ; 15: 01111
+next EN_MEM | RES_MEM | ADDR_RS1 | IMM_I
 
-load:    ; 16: 10000
-next 0 ; not implemented
+load2:   ; 16: 10000
+done EN_MEM | RES_MEM | ADDR_RS1 | IMM_I | EN_REG
 
-store:   ; 17: 10001
-next 0 ; not implemented
+store1:  ; 17: 10001
+next EN_MEM | EN_STR | ADDR_RS1 | IMM_I | SB_RD
 
-fence:   ; 18: 10010
+store2:  ; 18: 10010
+done EN_MEM | EN_STR | ADDR_RS1 | IMM_I | SB_RD
+
+fence:   ; 19: 10011
 done 0 ; nop
 
-ecall:   ; 19: 10011
+ecall:   ; 20: 10100
 next 0 ; not implemented
 
-ebreak:  ; 20: 10100
+ebreak:  ; 21: 10101
 next 0 ; not implemented
 
-mret:    ; 21: 10101
+mret:    ; 22: 10110
 next 0 ; not implemented
 
-wfi:     ; 22: 10110
+wfi:     ; 23: 10111
 next 0 ; not implemented
 
-csrrw:   ; 23: 10111
+csrrw:   ; 24: 11000
 next 0 ; not implemented
 
-csrrs:   ; 24: 11000
+csrrs:   ; 25: 11001
 next 0 ; not implemented
 
-csrrc:   ; 25: 11001
+csrrc:   ; 26: 11010
 next 0 ; not implemented

@@ -83,7 +83,7 @@
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>ack</string>
+          <string>useq</string>
         </entry>
       </elementAttributes>
       <pos x="320" y="440"/>

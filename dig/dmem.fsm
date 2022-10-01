@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fsm>
+  <states>
+    <state>
+      <values>cyc=0,stb=0,en=0</values>
+      <position x="240.0" y="120.0"/>
+      <number>0</number>
+      <name>idle</name>
+      <radius>90</radius>
+      <isInitial>true</isInitial>
+      <initialAngle>12</initialAngle>
+      <defaultDC>false</defaultDC>
+    </state>
+    <state>
+      <values>cyc=1,stb=1,en=0</values>
+      <position x="660.0" y="120.0"/>
+      <number>1</number>
+      <name>stalled</name>
+      <radius>90</radius>
+      <isInitial>false</isInitial>
+      <initialAngle>12</initialAngle>
+      <defaultDC>false</defaultDC>
+    </state>
+    <state>
+      <values>cyc=1,stb=0,en=0</values>
+      <position x="600.0" y="360.0"/>
+      <number>2</number>
+      <name>waiting</name>
+      <radius>90</radius>
+      <isInitial>false</isInitial>
+      <initialAngle>12</initialAngle>
+      <defaultDC>false</defaultDC>
+    </state>
+  </states>
+  <transitions>
+    <transition>
+      <values>en=1</values>
+      <position x="326.4671" y="380.29932"/>
+      <fromState reference="../../../states/state[3]"/>
+      <toState reference="../../../states/state"/>
+      <condition>ack</condition>
+    </transition>
+    <transition>
+      <values>cyc=1,stb=1</values>
+      <position x="450.0" y="89.47392"/>
+      <fromState reference="../../../states/state"/>
+      <toState reference="../../../states/state[2]"/>
+      <condition>stall &amp; req</condition>
+    </transition>
+    <transition>
+      <values>cyc=1,stb=1</values>
+      <position x="396.58124" y="275.12814"/>
+      <fromState reference="../../../states/state"/>
+      <toState reference="../../../states/state[3]"/>
+      <condition>~stall &amp; req</condition>
+    </transition>
+    <transition>
+      <values></values>
+      <position x="729.05884" y="264.7647"/>
+      <fromState reference="../../../states/state[2]"/>
+      <toState reference="../../../states/state[3]"/>
+      <condition>~stall</condition>
+    </transition>
+  </transitions>
+</fsm>
