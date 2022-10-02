@@ -39,3 +39,9 @@ A few days ago I sat down and hammered out almost a whole single-cycle design in
 Let's talk about the microcode setup for the single-cycle [Digital](https://github.com/hneemann/Digital) version of the processor. I map the instruction bits to a micro-op, and map the micro-op through a microcode ROM into the control bits to control the processor.
 
 [Read more](./2022-10-01-microcode.md)
+
+## Oct 2, 2022
+
+Getting [Digital](https://github.com/hneemann/Digital) to run assembly test programs is more than a little bit tricky. Here I detail the best way I have found, so far, to do this.
+
+[Read more](./2022-10-02-test_programs_in_digital.md)
