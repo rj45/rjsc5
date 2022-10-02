@@ -33,3 +33,9 @@ Added the tests from the [RISC-V tests repo](https://github.com/riscv-software-s
 A few days ago I sat down and hammered out almost a whole single-cycle design in [Digital](https://github.com/hneemann/Digital) in typical hyperfocus fashion. Some days inspiration just hits me.
 
 [Read more](./2022-09-26-digital_single_cycle.md)
+
+## Oct 1, 2022
+
+Let's talk about the microcode setup for the single-cycle [Digital](https://github.com/hneemann/Digital) version of the processor. I map the instruction bits to a micro-op, and map the micro-op through a microcode ROM into the control bits to control the processor.
+
+[Read more](./2022-10-01-microcode.md)

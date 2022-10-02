@@ -60,13 +60,12 @@ ARES_ADDR = 1 << 24
 #ruledef {
   next {value} => le((value | BUSY )`32)
   done {value} => le((value | READY | EN_PC | EN_IR )`32)
-  custom {value} => le((value )`32)
 }
 
 #bankdef bank
 {
     #addr 0
-    #size 1<<6
+    #size 1<<5
     #outp 0
     #fill
 }
